@@ -8,11 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class StudentService {
@@ -23,7 +20,7 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public DiplomaDTO generateDiloma(Student student){
+    private DiplomaDTO generateDiloma(Student student){
         DiplomaDTO diplomaDTO = new DiplomaDTO( MAPPER.map(student, StudentDTO.class));
         diplomaDTO.setMessage("Sua nota média foi de "+diplomaDTO.getAvarage());
         return diplomaDTO;
