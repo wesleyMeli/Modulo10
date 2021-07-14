@@ -18,7 +18,7 @@ public class StudentController {
 
     @PostMapping ("/analyzeNotes")
     @ResponseStatus(value = HttpStatus.CREATED)
-    public DiplomaDTO getById( @Valid @RequestBody StudentDTO student){
+    public DiplomaDTO analyzeNotes( @Valid @RequestBody StudentDTO student){
         return studentService.save(student);
     }
 }

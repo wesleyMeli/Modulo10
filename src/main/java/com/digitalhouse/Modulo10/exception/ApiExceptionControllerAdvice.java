@@ -20,4 +20,11 @@ public class ApiExceptionControllerAdvice {
 
        return  ResponseEntity.badRequest().body(errors);
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<Map<String, String>> defaultHandler(RuntimeException ex){
+        Map<String, String> errors = new HashMap<>();
+        errors.put("Reprovado", ex.getMessage());
+        return  ResponseEntity.badRequest().body(errors);
+    }
 }

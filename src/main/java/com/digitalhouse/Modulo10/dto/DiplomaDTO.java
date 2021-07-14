@@ -37,7 +37,7 @@ public class DiplomaDTO {
         return student;
     }
     private void avarage(List<SubjectDTO> subjectDTO){
-        BigDecimal x = subjectDTO.stream().map(SubjectDTO::getNote).reduce(BigDecimal.ZERO, BigDecimal::add);
-        this.avarage = x.doubleValue()/subjectDTO.size();
+        BigDecimal total = subjectDTO.stream().map(SubjectDTO::getNote).reduce(BigDecimal.ZERO, BigDecimal::add);
+        this.avarage = total.doubleValue()/subjectDTO.size();
     }
 }
