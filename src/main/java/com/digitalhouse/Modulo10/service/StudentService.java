@@ -23,6 +23,8 @@ public class StudentService {
     private DiplomaDTO generateDiloma(Student student){
         DiplomaDTO diplomaDTO = new DiplomaDTO( MAPPER.map(student, StudentDTO.class));
         diplomaDTO.setMessage("Sua nota média foi de "+diplomaDTO.getAvarage());
+        if(diplomaDTO.getAvarage() < 5 || Double.isNaN(diplomaDTO.getAvarage())) throw new RuntimeException("Estudante "+student.getName()+
+                " foi reprovado com a media de "+((Double.isNaN(diplomaDTO.getAvarage()))?0:diplomaDTO.getAvarage()));
         return diplomaDTO;
     }
 
