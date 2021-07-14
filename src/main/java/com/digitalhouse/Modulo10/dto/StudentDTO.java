@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -18,6 +19,7 @@ public class StudentDTO {
     private String name;
 
     @Valid
+    @NotEmpty(message = "O estudante deve ter ao menos uma disciplina")
     @JsonProperty("subjects")
     private List<SubjectDTO> matters;
 
